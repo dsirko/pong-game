@@ -17,7 +17,7 @@ game_is_on = True
  
 while game_is_on:
     screen.update()
-    # ball.move()
+    ball.move()
 
     screen.listen()
     screen.onkey(paddle_player.go_up, "Right")
