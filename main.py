@@ -22,6 +22,9 @@ while game_is_on:
     screen.listen()
     screen.onkey(paddle_player.go_up, "Right")
     screen.onkey(paddle_player.go_down, "Left")
+    
+    screen.onkey(paddle_computer.go_up, "d")
+    screen.onkey(paddle_computer.go_down, "a")
 
 
 
