@@ -10,8 +10,11 @@ class Ball(Turtle):
         self.shapesize(stretch_wid=1, stretch_len=1)
         self.penup()
         self.goto(position)
+        # self.direction = "DownRight"
         
-    def move(self):
-        new_x = self.ycor() + 1
-        new_y = self.xcor() + 1
+    def move(self, x, y):
+        new_x = self.xcor() + x
+        new_y = self.ycor() + y
         self.goto(new_x, new_y)
+        print(x,y)
+            
