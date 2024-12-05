@@ -26,5 +26,4 @@ while game_is_on:
     ball.move()
 
 
-#just a comment. test-branch
 screen.exitonclick()
