@@ -10,9 +10,14 @@ class Paddle(Turtle):
         self.penup()
         self.goto(position)
         
-    # def show(self):
-    #     self.showturtle()
+
+    def go_up(self):
+        new_y = self.ycor() + 20
+        self.goto(self.xcor(), new_y)
         
-    # def hide(self):
-    #     self.hideturtle()   
+        
+    def go_down(self):
+        new_y = self.ycor() - 20
+        self.goto(self.xcor(), new_y)
+     
         
