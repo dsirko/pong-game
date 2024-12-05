@@ -1,7 +1,7 @@
 from turtle import Turtle, Screen 
 from paddle import Paddle
 from ball import Ball
-import random
+import time
 
 screen = Screen()
 screen.setup(width=800, height=600)
@@ -16,6 +16,7 @@ ball = Ball((0, 0))
 game_is_on = True   
  
 while game_is_on:
+    time.sleep(0.05)
     screen.update()
     # ball.move()
 
