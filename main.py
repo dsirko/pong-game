@@ -1,6 +1,7 @@
 from turtle import Turtle, Screen 
 from paddle import Paddle
 from ball import Ball
+import time
 import random
 
 screen = Screen()
@@ -33,12 +34,14 @@ while game_is_on:
     if ball.distance(paddle_r) < 50 and ball.xcor() > 350 or ball.distance(paddle_l) < 50 and ball.xcor() < -350:
         ball.bounce(x=True)
         
-    if ball.xcor() > 400:
+    if ball.xcor() > 390:
         print("Left player won!")
+        time.sleep(1)
         ball.reset_position()
        
     if ball.xcor() < -400:
         print("Right player won!")
+        time.sleep(1)
         ball.reset_position()
         
 # #Y Up --> Down
