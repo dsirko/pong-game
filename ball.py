@@ -38,6 +38,7 @@ class Ball(Turtle):
         # self.x_move = random.randint(x_range[0], x_range[1])
         self.y_move = random.randint(y_range[0], y_range[1])
         print(f"y_move: {self.y_move} x_move: {self.x_move}")
+        
     
     def reset_position(self):
         self.rand_shot()
