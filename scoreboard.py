@@ -20,11 +20,10 @@ class Scoreboard(Turtle):
         self.write(self.r_score, align="center", font=("Courier", 80, "normal"))
 
         
-    def l_score_change(self):
-        self.l_score += 1
-        self.scoreboard_update()
-
-
-    def r_score_change(self):
-        self.r_score += 1
+    def score_change(self, side):
+        if side == "left":
+            self.l_score += 1
+        else:
+            self.r_score += 1
+            
         self.scoreboard_update()

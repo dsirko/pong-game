@@ -1,4 +1,5 @@
 from turtle import Turtle
+# from main import ball_speed_update
 import random
 
 class Ball(Turtle):
@@ -7,12 +8,13 @@ class Ball(Turtle):
         super().__init__()
         self.shape("circle")
         self.color("white")
-        self.speed("fastest")
+        self.speed("slow")
         self.shapesize(stretch_wid=1, stretch_len=1)
         self.penup()
         self.goto(position)
         self.x_move = 6
         self.y_move = 6
+        self.ball_speed = 0.05
         # self.x_move = 6
         # self.y_move = 0
         
@@ -24,9 +26,10 @@ class Ball(Turtle):
         
     def bounce(self,x):
         if x == True:
-            self.x_move *= -1
+            self.x_move *= -1            
         else:
             self.y_move *= -1
+
         
     # def rand_shot(self):
     #     the_cord = random(-6, 6)
@@ -44,5 +47,15 @@ class Ball(Turtle):
         self.rand_shot()
         self.bounce(x=True)
         self.goto(1,1)
+        self.ball_speed = 0.05
+        
+    
+    def ball_speed_update(self):
+        if self.ball_speed > 0.01:
+            self.ball_speed -= 0.01
+            print(self.ball_speed)
+        else:
+            self.ball_speed = 0.01
+        print(f"ball_speed: {self.ball_speed}")
         
             

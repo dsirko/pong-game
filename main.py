@@ -20,36 +20,40 @@ screen.listen()
 screen.onkey(paddle_r.go_up, "Right")
 screen.onkey(paddle_r.go_down, "Left")
 screen.onkey(paddle_l.go_up, "d")
-screen.onkey(paddle_l.go_down, "a")    
+screen.onkey(paddle_l.go_down, "a")   
     
 game_is_on = True   
- 
 # ball_x = -6
 # ball_y = -6
 while game_is_on:
-    # time.sleep(0.05)
-    screen.update()
-    ball.move(ball.x_move, ball.y_move) 
+    time.sleep(ball.ball_speed)
 
+    ball.move(ball.x_move, ball.y_move) 
+    
+    screen.update()
+
+    # Detect collision with wall - Y
     if ball.ycor() > 280 or ball.ycor() < -280:
         ball.bounce(x=False)
         
-    if ball.distance(paddle_r) < 50 and ball.xcor() > 350 or ball.distance(paddle_l) < 50 and ball.xcor() < -350:
-        ball.bounce(x=True)
-        
+
+    # Detect collision with wall - X
     if ball.xcor() > 390:
         print("Left player won!")
-        scoreboard.l_score_change()
-        print(scoreboard.r_score)
-        time.sleep(1)
+        scoreboard.score_change("left")
         ball.reset_position()
-       
-    if ball.xcor() < -400:
+    elif ball.xcor() < -400:
         print("Right player won!")
-        scoreboard.r_score_change()
-        print(scoreboard.l_score)
-        time.sleep(1)
+        scoreboard.score_change("right")
+        # print(scoreboard.l_score)
+        # time.sleep(0.5)
         ball.reset_position()
+        
+        
+    # Detect collision with paddle    
+    if ball.distance(paddle_r) < 50 and ball.xcor() > 350 or ball.distance(paddle_l) < 50 and ball.xcor() < -350:
+        ball.bounce(x=True)
+        ball.ball_speed_update()
         
 # #Y Up --> Down
 #     if ball.ycor() >= 290:
